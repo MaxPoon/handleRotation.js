@@ -1,0 +1,27 @@
+{
+  "name": "handle-rotation.js",
+  "version": "1.0.0",
+  "description": "add a handle to rotate the HTML Dom element",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxPoon/handleRotation.js.git"
+  },
+  "keywords": [
+    "rotation",
+    "rotate",
+    "handle"
+  ],
+  "author": "MaxPoon <maxpanziyuan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxPoon/handleRotation.js/issues"
+  },
+  "homepage": "https://github.com/MaxPoon/handleRotation.js#readme",
+  "dependencies": {
+    "jquery": "3.1.1"
+  }
+}
