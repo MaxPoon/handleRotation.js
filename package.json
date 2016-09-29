@@ -1,6 +1,6 @@
 {
   "name": "handle-rotation.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "add a handle to rotate the HTML Dom element",
   "main": "src/handleRotation.js",
   "scripts": {
