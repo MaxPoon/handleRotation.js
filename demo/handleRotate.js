@@ -1,8 +1,8 @@
 (function(){
 	var handleRotation = (function(){
 		var handleRotation = function(){
-			var rotationTarget=null, h_x=0, h_y=0,
-				o_x=0, o_y=0, last_angle = 0, s_rad=0,s_x=0,s_y=0,
+			var rotationTarget=null, click_x=0, click_y=0,
+				origin_x=0, origin_y=0, last_angle = 0, rotate_rad=0,start_x=0,start_y=0,
 				degree=0, target=null;
 
 			document.body.onmousedown = function(e){
@@ -12,22 +12,22 @@
 						left: $(e.target.parentNode).offset().left,
 						top: $(e.target.parentNode).offset().top
 					});
-					h_x = e.pageX;
-					h_y = e.pageY; // clicked point
-					o_x = $(e.target.parentNode).data("origin").left;
-					o_y = $(e.target.parentNode).data("origin").top; // origin point
+					click_x = e.pageX;
+					click_y = e.pageY; // clicked point
+					origin_x = $(e.target.parentNode).data("origin").left;
+					origin_y = $(e.target.parentNode).data("origin").top; // origin point
 					last_angle = $(e.target.parentNode).data("last_angle") || 0;
 				}
 			}
 			document.body.onmousemove = function(e){
 				if(rotationTarget===null) return false;
-				s_x = e.pageX;
-				s_y = e.pageY; //starting point
-				if (s_x !== o_x && s_y !== o_y) {
-				s_rad = Math.atan2(s_y - o_y, s_x - o_x); // current to origin
-				s_rad -= Math.atan2(h_y - o_y, h_x - o_x); // handle to origin
-				s_rad += last_angle; // relative to the last one
-				degree = (s_rad * (360 / (2 * Math.PI)));
+				start_x = e.pageX;
+				start_y = e.pageY; //starting point
+				if (start_x !== origin_x && start_y !== origin_y) {
+				rotate_rad = Math.atan2(start_y - origin_y, start_x - origin_x); // current to origin
+				rotate_rad -= Math.atan2(click_y - origin_y, click_x - origin_x); // handle to origin
+				rotate_rad += last_angle; // relative to the last one
+				degree = (rotate_rad * (360 / (2 * Math.PI)));
 				target = $(rotationTarget);
 				target.css('-moz-transform', 'rotate(' + degree + 'deg)');
 				target.css('-moz-transform-origin', '50% 50%');
@@ -41,13 +41,13 @@
 			}
 			document.body.onmouseup = function(e){
 				rotationTarget = null;
-				s_x = e.pageX;
-				s_y = e.pageY;
+				start_x = e.pageX;
+				start_y = e.pageY;
 				// Saves the last angle for future iterations
-				s_rad = Math.atan2(s_y - o_y, s_x - o_x);// current to origin
-				s_rad -= Math.atan2(h_y - o_y, h_x - o_x); // handle to origin
-				s_rad += last_angle;
-				$(e.target.parentNode).data("last_angle", s_rad);
+				rotate_rad = Math.atan2(start_y - origin_y, start_x - origin_x);// current to origin
+				rotate_rad -= Math.atan2(click_y - origin_y, click_x - origin_x); // handle to origin
+				rotate_rad += last_angle;
+				$(e.target.parentNode).data("last_angle", rotate_rad);
 			}
 		};
 		handleRotation.prototype.addHandle = function(target,originX=50,originY=50,handleX=120,handleY=50,color="black",handleWidth=10,handleHeight=10){
