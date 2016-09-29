@@ -16,12 +16,19 @@ Link the plugin to html file:
 Add a handle to the target dom element with the customized attributes.
 
 target: the target dom element.
+
 originX: the x value of the origin for rotation in percentage. Defalt value: 50.
+
 originY: the y value of the origin for rotation in percentage. Defalt value: 50.
+
 handleX: the horizontal position of the handle related to the target. Defalt value: 120.
+
 handleY: the vertical position of the handle related to the target. Defalt value: 50.
+
 color: color of the handle. Defalt value: "black".
+
 handleWidth: width of the handle in px. Defalt value: 10.
+
 handleHeight: height of the handle in px. Defalt value: 10.
 
 ## Demo Example
