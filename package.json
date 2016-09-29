@@ -2,7 +2,7 @@
   "name": "handle-rotation.js",
   "version": "1.0.0",
   "description": "add a handle to rotate the HTML Dom element",
-  "main": "src/index.js",
+  "main": "src/handleRotation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
