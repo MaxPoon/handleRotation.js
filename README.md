@@ -33,7 +33,7 @@ handleHeight: height of the handle in px. Defalt value: 10.
 
 ## Demo Example
 HTML:
-```
+```HTML
 <!DOCTYPE html>
 <html>
 <head>
